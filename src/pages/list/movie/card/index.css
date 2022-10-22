@@ -1,0 +1,19 @@
+.card{
+    background-color: antiquewhite;
+    width: 100%;
+    padding:10px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 0;
+}
+.title{
+    font-size: 20px;
+}
+.movie-card-img {
+    width:150px;
+    height:150px;
+}
+.overview{
+    max-width: 800px;
+}

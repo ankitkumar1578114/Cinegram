@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import MoiveList from './pages/list/movie'
+import ArtistList from './pages/list/artist'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ArtistList></ArtistList>
+    <MoiveList></MoiveList>
   </React.StrictMode>
 );
 
