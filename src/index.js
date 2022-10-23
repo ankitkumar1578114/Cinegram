@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import MoiveList from './pages/list/movie'
 import ArtistList from './pages/list/artist'
+import LanguageList from './pages/list/language'
+import CrewList from './pages/list/crew'
 import reportWebVitals from './reportWebVitals';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ArtistList></ArtistList>
+    <div className="language-list">
+      {/* <LanguageList></LanguageList> */}
+    </div>
+    {/* <CrewList></CrewList> */}
+    {/* <ArtistList></ArtistList> */}
     <MoiveList></MoiveList>
+
   </React.StrictMode>
 );
 

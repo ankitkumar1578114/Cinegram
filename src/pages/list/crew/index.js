@@ -1,20 +1,19 @@
 import './index.css';
 import Card from './card'
-import BackendUrl from '../../../urls';
 import { useEffect, useState } from 'react';
+import BackendUrl from '../../../urls';
 
-// http://localhost:4000/movie/list/8243
-//for veer zaara movie
+// http://localhost:4000/artist/list/63130
+//for kajol
 
-const urlToFetch = `${BackendUrl}/movie/list/1639`
-// const urlToFetch =  `${BackendUrl}/movie/list/8243`
+const urlToFetch = `${BackendUrl}/crew/list/87323`
+
 
 const Componenet = ()=> {
 
-    var [movieList,setMovieList] = useState([]);
+    var [crewList,setCrewList] = useState([]);
 
     useEffect(()=>{
-        console.log(urlToFetch)
         fetch(urlToFetch,{
             method : "GET",
             mode: 'cors',
@@ -23,13 +22,13 @@ const Componenet = ()=> {
         .then(res=>res.json())
         .then(json=>{
             console.log(json)
-            setMovieList(json);
+            setCrewList(json);
         });
     },[])
 
-    return movieList.map((movie)=>(
+    return crewList.map((crew)=>(
         <>
-            <Card movie={movie} />
+            <Card crew={crew} />
         </>
     )
     );

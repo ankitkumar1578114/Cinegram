@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import MovieCard from '../movieCard'
+import CrewCard from '../crewCard'
 import BackendUrl from '../../../../urls';
 
-const Componenet = ({artist})=> {
+const Componenet = ({crew})=> {
  
     var [movies,setMovies] = useState([]);
-    const urlToFetch = `${BackendUrl}/artist/movie/`
+    const urlToFetch = `${BackendUrl}/crew/movie/`
 
     useEffect(()=>{
-        fetch(urlToFetch+artist.actor_id,{
+        fetch(urlToFetch+crew.crew_id,{
             method : "GET",
             mode: 'cors',
             headers:{} 
@@ -26,16 +26,16 @@ const Componenet = ({artist})=> {
     <>
         <div className="card">
             <div>
-                <img className="movie-card-img" src={artist.google_url} ></img>
+                <img className="movie-card-img" src={crew.google_url} ></img>
             </div>
             <div className="title">
-                {artist?artist.name:""}
+                {crew?crew.name:""}
             </div>
             <div className="overview">
-                {artist.overview}
+                {crew.job}
              </div>
         </div>
-        <div style={{display:'flex',overflow:'scroll',gap:'10px',justifyContent:'left'}}><MovieCard movies={movies}/></div>
+        <div style={{display:'flex',overflow:'scroll',gap:'10px',justifyContent:'left'}}><CrewCard movies={movies}/></div>
 
     </>
     );
