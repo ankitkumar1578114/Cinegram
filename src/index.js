@@ -7,8 +7,8 @@ import LanguageList from './pages/list/language'
 import CrewList from './pages/list/crew'
 import SearchPage from './pages/search'
 import PostList from './pages/list/post'
-import reportWebVitals from './reportWebVitals';
-
+import reportWebVitals from './reportWebVitals'; 
+import Post from './pages/detail/post/index.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,8 +17,9 @@ root.render(
     <div className="language-list">
       {/* <LanguageList></LanguageList> */}
     </div>
-    <PostList/>
+    {/* <PostList/> */}
 
+   <Post/>
     {/* <CrewList></CrewList> */}
     {/* <ArtistList></ArtistList> */}
     {/* <MoiveList></MoiveList> */}
