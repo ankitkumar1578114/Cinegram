@@ -5,6 +5,7 @@ import MoiveList from './pages/list/movie'
 import ArtistList from './pages/list/artist'
 import LanguageList from './pages/list/language'
 import CrewList from './pages/list/crew'
+import SearchPage from './pages/search'
 import reportWebVitals from './reportWebVitals';
 
 
@@ -14,9 +15,12 @@ root.render(
     <div className="language-list">
       {/* <LanguageList></LanguageList> */}
     </div>
+    
+    <SearchPage/>
+
     {/* <CrewList></CrewList> */}
     {/* <ArtistList></ArtistList> */}
-    <MoiveList></MoiveList>
+    {/* <MoiveList></MoiveList> */}
 
   </React.StrictMode>
 );
