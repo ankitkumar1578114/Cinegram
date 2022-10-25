@@ -1,7 +1,20 @@
 .search-box{
-    width:96%;
-    padding:10px 1%;
+    width:76%;
+    padding:10px 0;
     margin:10px 0;
-    margin-left:1%;
-
+    margin-left:12%;
+}
+.search-list{
+    width: 76%;
+    margin-left: 12%;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    padding-left: 12px;
+}
+.search-list-item{
+    padding: 4px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0,0,0,0.1 );
 }
