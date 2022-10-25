@@ -12,7 +12,8 @@ const Componenet = ()=> {
     const [movieList,setMovieList] = useState();
 
     const searchFunc = e => {
-        e.preventDefault();
+        // e.preventDefault();
+        setItemToSearch(e.target.value)
         if(itemToSearch=="")
         return ;
         fetch(urlToFetch+itemToSearch,{
@@ -32,9 +33,10 @@ const Componenet = ()=> {
     return (
         <>
             <form onSubmit={searchFunc}>
-                <input className="search-box" placeholder="Search for movie here..." value = {itemToSearch} onChange = { (e) =>{setItemToSearch(e.target.value) }} type="text"/>
+                <input className="search-box" placeholder="Search for movie here..." onChange = { (e) =>{searchFunc(e) }} type="text"/>
             </form>
-            <MovieList movies = {movieList} calledFrom ="searchPage" />
+
+               <MovieList movies = {movieList} calledFrom ="searchPage" />
 
             {/* <List movieList={movieList}/> */}
         </>

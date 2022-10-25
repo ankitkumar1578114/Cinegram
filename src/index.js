@@ -6,17 +6,18 @@ import ArtistList from './pages/list/artist'
 import LanguageList from './pages/list/language'
 import CrewList from './pages/list/crew'
 import SearchPage from './pages/search'
+import PostList from './pages/list/post'
 import reportWebVitals from './reportWebVitals';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <SearchPage/>
     <div className="language-list">
       {/* <LanguageList></LanguageList> */}
     </div>
-    
-    <SearchPage/>
+    <PostList/>
 
     {/* <CrewList></CrewList> */}
     {/* <ArtistList></ArtistList> */}

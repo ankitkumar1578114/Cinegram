@@ -1,0 +1,6 @@
+.post-container{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    padding:10px 0;
+}
