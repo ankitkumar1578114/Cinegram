@@ -2,14 +2,15 @@
 {
     width:120px;
     height: auto;
-    background-color:aquamarine;
+    background-color:wheat;
     display:flex;
     flex-direction: column;
     align-items: center;
     border-radius: 3px;
+    margin:10px 0;
 }
 .artist-movie-card-img-box{
-    width:100px;
+    width:120px;
     height: 100px;
 }
 .artist-movie-card-img{
