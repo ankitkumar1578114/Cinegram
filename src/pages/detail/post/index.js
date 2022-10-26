@@ -4,13 +4,16 @@ import './index.css';
 import BackendUrl from '../../../urls';
 
 const Post = ()=> {
-    var id=2;
 
     const [postData,setPostData]=useState([]);
 
     const urlToFetch = `${BackendUrl}/post/`
 
     useEffect(()=>{
+
+        const queryParams = new URLSearchParams(window.location.search);
+        const id = queryParams.get('id');    
+
         fetch(urlToFetch+id,{
             method : "GET",
             mode: 'cors',

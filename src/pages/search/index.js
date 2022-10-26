@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import BackendUrl from '../../urls';
-import MovieList from '../list/movie'
+import {Link} from 'react-router-dom'
 import './index.css';
 
 
@@ -43,9 +43,11 @@ const Componenet = () => {
             <div className="search-list" >
                 {
                     searchList.map((movie) => (
+                        <Link to={"/movie?id="+movie.movie_id} style={{textDecoration:'none',color:'black'}}>                 
                         <div class='search-list-item'>
                             {movie.title}
                         </div>
+                        </Link>
                     )
                     )
                 }
