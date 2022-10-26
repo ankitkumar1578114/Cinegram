@@ -1,0 +1,43 @@
+.detail-artist{
+    display: flex;
+    justify-content: space-between;    
+    height: 300px;;
+    padding:20px;
+    gap:20px;
+}
+
+.detail-artist-left{
+    height:600px;
+    background-color:bisque;
+    width:calc(100% - 500px);
+}
+.detail-artist-left-first{
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.detail-artist-img{
+    width:300px;
+    height:300px;
+}
+
+.detail-artist-details{
+    width:calc(100% - 300px);
+    height:300px;
+}
+
+.detail-artist-details-title{
+    font-size: 34px;
+    font-weight: 600;    
+}
+
+
+.detail-artist-right{
+    width:550px;
+    height:auto;
+    display: flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:flex-start;
+}

@@ -4,13 +4,13 @@ import './index.css';
 import RouterPage from './pages/route'
 import reportWebVitals from './reportWebVitals'; 
 import {BrowserRouter,Route} from "react-router-dom"
-
+import Artist from './pages/detail/artist';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
       <RouterPage/>    
-    </BrowserRouter>
+     </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

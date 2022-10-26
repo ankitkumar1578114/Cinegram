@@ -3,6 +3,7 @@ import './index.css';
 import MainPage from '../main'
 import PostPage from '../detail/post'
 import MoviePage from '../detail/movie'
+import ArtistPage from '../detail/artist'
 import {Routes ,Route} from 'react-router-dom'
 
 const urlToFetch = `${BackendUrl}/movie/search/`
@@ -15,6 +16,7 @@ const Componenet = () => {
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/post" element={<PostPage/>} />
                 <Route path="/movie" element={<MoviePage/>} />                
+                <Route path="/artist" element={<ArtistPage/>} />                
             </Routes>
         </>
     );
