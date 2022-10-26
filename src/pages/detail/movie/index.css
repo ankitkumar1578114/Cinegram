@@ -25,11 +25,37 @@
 .detail-movie-details{
     width:calc(100% - 300px);
     height:300px;
+    padding:10px;
 }
 
 .detail-movie-details-title{
     font-size: 34px;
     font-weight: 600;    
+    margin-top: 10px;
+}
+
+.detail-movie-details-tagline{
+    font-size: 16px;
+    font-weight: 600;    
+    margin-top: 10px;
+}
+
+.detail-movie-details-overview{
+    font-size: 14px;
+    font-weight: 400;    
+    margin-top: 10px;
+}
+
+.detail-movie-details-runtime{
+    font-size: 20px;
+    font-weight: 600;    
+    margin-top: 10px;
+}
+
+.detail-movie-details-revenue{
+    font-size: 20px;
+    font-weight: 600;    
+    margin-top: 10px;
 }
 
 

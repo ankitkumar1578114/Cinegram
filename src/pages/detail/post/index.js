@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 // import MovieCard from '../movieCard'
+import {Link}  from 'react-router-dom'
 import BackendUrl from '../../../urls';
 
 const Post = ()=> {
@@ -33,7 +34,7 @@ const Post = ()=> {
         
         <div className="detail-post">
             
-        <div className="detail-post-title">
+            <div className="detail-post-title">
                 {postData.title}
             </div>
 
@@ -41,16 +42,26 @@ const Post = ()=> {
                 <img className="detail-post-img" src={postData.post_img_url} ></img>
             </div>
 
-           
-
-           
-            
+                                  
             <div className="detail-post-overview">
                 {postData.body}
              </div>
-        </div>      
-        {/* <div style={{display:'flex',overflow:'scroll',gap:'10px',justifyContent:'left'}}><MovieCard movies={movies}/></div> */}
 
+             <div className="detail-post-tags">
+            {
+                postData.tags?.map((tag)=>(
+                    <div>
+                        <Link to={"/movie?id="+tag.tag_entity_id} style={{textDecoration:'none',color:'black'}}>                 
+                            {tag.tag_entity_name}
+                        </Link>
+                    </div>
+                ))
+            }
+        </div>
+
+
+        </div>      
+        
     </>
     );
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import RouterPage from './pages/route'
+import SearchPage from './pages/search'
 import reportWebVitals from './reportWebVitals'; 
 import {BrowserRouter,Route} from "react-router-dom"
 
@@ -9,6 +10,7 @@ import {BrowserRouter,Route} from "react-router-dom"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
+    <SearchPage/>
       <RouterPage/>    
     </BrowserRouter>
 );

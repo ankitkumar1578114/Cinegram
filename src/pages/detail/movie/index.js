@@ -22,7 +22,7 @@ const Post = ()=> {
         })
         .then(res=>res.json())
         .then(json=>{
-            // console.log(json)
+            console.log(json)
             // setMovieList(json);
             setMovieData(json[0]);
             setCasts(json[0].casts)
@@ -30,6 +30,15 @@ const Post = ()=> {
 
     },[])
     
+    const getRevenue =(x) =>{
+        if(x>=100000000){
+            return x/100000000 +"B $";
+        }
+        if(x>=1000000){
+            return x/1000000 +"M $";
+        }
+        return x+" $";
+    }
 
     return (
     <>
@@ -41,9 +50,26 @@ const Post = ()=> {
                         <img src ={movieData.google_url} style={{width:'100%',height:'100%'}}/>
                     </div>
                     <div className='detail-movie-details'>
+
                         <div className='detail-movie-details-title'>
                             {movieData.title}
                         </div>
+                        <div className='detail-movie-details-tagline'>
+                            {movieData.tagline}
+                        </div>
+                        <div className='detail-movie-details-overview'>
+                            {movieData.overview}
+                        </div>
+                        <div style={{display:'flex',gap:'50px',alignItems:'baseline'}}>
+                            <div className='detail-movie-details-runtime'>
+                                {parseInt(movieData.runtime/60)} hr {parseInt(movieData.runtime%60)} min 
+                            </div>
+                            <div className='detail-movie-details-revenue'>
+                                {getRevenue(movieData.revenue)}
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
 

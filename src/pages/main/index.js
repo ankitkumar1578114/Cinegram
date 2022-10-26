@@ -30,7 +30,6 @@ const Componenet = ()=> {
 
     return (
             <div className='main-container'>
-                <SearchPage/>
                 <PostList/>
             </div>
     );

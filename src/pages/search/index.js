@@ -43,7 +43,7 @@ const Componenet = () => {
             <div className="search-list" >
                 {
                     searchList.map((movie) => (
-                        <Link to={"/movie?id="+movie.movie_id} style={{textDecoration:'none',color:'black'}}>                 
+                        <Link to={"/movie?id="+movie.id} style={{textDecoration:'none',color:'black'}}>                 
                         <div class='search-list-item'>
                             {movie.title}
                         </div>

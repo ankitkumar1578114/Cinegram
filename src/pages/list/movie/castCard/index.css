@@ -20,6 +20,7 @@
 }
 .movie-cast-card-title{
     text-align: center;
-    color:blue;
-    font-size: 16px;
+    color:black;
+    font-size: 14px;
+    font-weight: 500;
 }

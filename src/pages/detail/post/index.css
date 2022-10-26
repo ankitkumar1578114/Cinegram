@@ -36,3 +36,12 @@
     /* padding:7px; */
     padding:0%;
 }
+.detail-post-tags{
+    display: flex;
+    gap:10px;
+}
+.detail-post-tags >*{
+    font-size: 16px;
+    font-weight: 500;
+    cursor:pointer
+}
