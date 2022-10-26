@@ -1,30 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import MoiveList from './pages/list/movie'
-import ArtistList from './pages/list/artist'
-import LanguageList from './pages/list/language'
-import CrewList from './pages/list/crew'
-import SearchPage from './pages/search'
-import PostList from './pages/list/post'
+import RouterPage from './pages/route'
 import reportWebVitals from './reportWebVitals'; 
-import Post from './pages/detail/post/index.js'
+import {BrowserRouter,Route} from "react-router-dom"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <SearchPage/>
-    <div className="language-list">
-      {/* <LanguageList></LanguageList> */}
-    </div>
-    {/* <PostList/> */}
-
-   <Post/>
-    {/* <CrewList></CrewList> */}
-    {/* <ArtistList></ArtistList> */}
-    {/* <MoiveList></MoiveList> */}
-
-  </React.StrictMode>
+    <BrowserRouter>
+      <RouterPage/>    
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
