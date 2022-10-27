@@ -3,6 +3,11 @@
     height:400px;
     background-color:bisque;
     border-radius: 4px;
+    overflow: hidden;
+    transition: background-color 1s;
+}
+.post:hover{
+    background-color: rgb(248, 198, 138);
 }
 .post-img{
     width: 100%;
@@ -12,6 +17,7 @@
     padding:10px;
     font-weight: 600;
     font-size: 22px;
+    text-decoration-line: underline;
 }
 .post-body{
     font-size: 16px;

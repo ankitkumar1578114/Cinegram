@@ -1,13 +1,15 @@
+.search-box-div{
+    padding:0px 40px;
+}
 .search-box{
-    width:76%;
+    width:100%;
     padding:10px 0;
     margin:10px 0;
-    margin-left:12%;
 }
 
 .search-list{
-    width: 76%;
-    margin-left: 12%;
+    width:94%;
+    margin-left:3%;
     height: auto;
     background-color: white;
     position: absolute;

@@ -1,6 +1,7 @@
 import './index.css';
 import BackendUrl from '../../../urls';
 import PostCard from '../post/postCard'
+import PostCardLoader from '../post/postCardLoader'
 import { useEffect, useState } from 'react';
 import { Link, Redirect } from "react-router-dom";
 
@@ -12,7 +13,8 @@ const urlToFetch = `${BackendUrl}/post/list/0`
 
 const Componenet = ()=> {
 
-    var [postList,setPostList] = useState([]);
+    var [postList,setPostList] = useState();
+    var [postListLoader,setPostListLoader] = useState([0,0,0,0,0])
 
     useEffect(()=>{
         // console.log("Hi")
@@ -28,16 +30,20 @@ const Componenet = ()=> {
         }); 
     },[])
 
-
     return (<div className='post-container'>
-            {
-                
-            postList.map((post)=>(
-                <Link to={"/post?id="+post.id} style={{textDecoration:'none',color:'black'}}>
-                    <PostCard post={post}/>
-                </Link>
-            ))
-            }
+                <div className="post-card-container">
+                    {        
+                    postList?        
+                    postList.map((post)=>(
+                        <Link to={"/post?id="+post.id} style={{textDecoration:'none',color:'black'}}>
+                            <PostCard post={post}/>
+                        </Link>
+                    )):
+                    postListLoader.map((post)=>(
+                        <PostCardLoader />
+                    ))
+                    } 
+                </div>
             </div>
     );
 }

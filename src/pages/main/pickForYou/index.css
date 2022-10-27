@@ -1,0 +1,21 @@
+.top-pick{
+    padding:20px 40px;
+    display:flex;
+    flex-direction: column;
+    gap:10px ;
+}
+.top-pick-title{
+    width:100%;
+    font-size:24px;
+    font-weight: 500;
+}
+.top-pick-list{
+    width:100%;
+    display: flex;
+    gap:10px;
+    overflow: scroll;
+}
+.top-pick-list::-webkit-scrollbar {
+    display: none;
+  }
+  

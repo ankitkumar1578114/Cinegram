@@ -9,6 +9,10 @@ const urlToFetch = `${BackendUrl}/movie/search/`
 const Componenet = () => {
 
     var itemToSearch = ""
+
+    const [selectedSearchItem,setSelectedSearchItem] = useState(-1);
+
+
     const [searchList, setSearchList] = useState([]);
 
     const searchFunc = (e) => {
@@ -37,7 +41,9 @@ const Componenet = () => {
     return (
         <>
             <form onSubmit={searchFunc}>
-                <input className="search-box" placeholder="Search for movie here..." onChange={(e) => { searchFunc(e) }} type="text" />
+                <div className='search-box-div'>
+                <input className="search-box" placeholder="Search for movie here..." onChange={(e) => { searchFunc(e) }} type="text" /> 
+                </div>
             </form>
 
             <div className="search-list" >

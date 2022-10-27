@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 import BackendUrl from '../../../urls';
+import HistogramForGenre from '../../../components/histogram'
 import MovieCard from '../../list/artist/movieCard'
+
 
 const Component = ()=> {
 
     const [artistData,setArtistData]=useState([]);
     const [artistMovies,setArtistMovies]=useState([]);
-
+    const [genresPercentage,setGenresPercentage] =useState([])
 
     const urlToFetch = `${BackendUrl}/artist/`
 
@@ -27,6 +29,7 @@ const Component = ()=> {
             // setartistList(json);
             setArtistData(json[0]);
             setArtistMovies(json[0].movies);
+            setGenresPercentage(json[0].genres_percentage)
         });    
 
     },[])
@@ -45,7 +48,11 @@ const Component = ()=> {
                         <div className='detail-artist-details-title'>
                             {artistData.name}
                         </div>
+                        <div> 
+                             <HistogramForGenre genresPercentage={genresPercentage} />
+                        </div>
                     </div>
+
                 </div>
 
             </div>

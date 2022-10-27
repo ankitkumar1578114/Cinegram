@@ -1,0 +1,17 @@
+.tpfy-card-loader{
+    width:200px;
+    height:300px;
+    background-color:blanchedalmond;    
+    border-radius: 6px;
+    color:black;
+    animation-name: animate-img;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes animate-img {
+    0%   {background-color:rgb(251, 212, 165);}
+    50% {background-color: rgb(249, 191, 120);}
+    0%   {background-color:rgb(251, 212, 165);}  
+}

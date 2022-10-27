@@ -1,0 +1,26 @@
+.post-card2{
+    background-color:bisque;    
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+    margin:10px;
+}
+.post-card2 >:first-child{
+    width:120px;
+    height:120px;
+}
+.post-card2 >:last-child{
+    width:calc(100% - 120px);
+    height:120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.post-card2-title{
+    font-size:18px;
+    font-weight: 600;
+}
+.post-card2-overview{
+    font-size:14px;
+    font-weight: 400;
+}

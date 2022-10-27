@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import './index.css';
 import BackendUrl from '../../../urls';
+import PostCard from './postCard'
 import ArtistCard from '../../list/movie/castCard'
 
 const Post = ()=> {
 
-    const [movieData,setMovieData]=useState([]);
-
     const urlToFetch = `${BackendUrl}/movie/`
 
+    const [movieData,setMovieData]=useState([]);
+
     const [casts,setCasts] = useState([])
+
+    const [posts,setPosts] = useState([])
+
+    const [genres,setGenres] = useState([])
 
     useEffect(()=>{
         const queryParams = new URLSearchParams(window.location.search);
@@ -25,17 +30,19 @@ const Post = ()=> {
             console.log(json)
             // setMovieList(json);
             setMovieData(json[0]);
+            setPosts(json[0].posts)
             setCasts(json[0].casts)
+            setGenres(json[0].genres)
         });    
 
     },[])
     
     const getRevenue =(x) =>{
         if(x>=100000000){
-            return x/100000000 +"B $";
+            return parseInt(x/100000000)+"B $";
         }
         if(x>=1000000){
-            return x/1000000 +"M $";
+            return parseInt(x/1000000) +"M $";
         }
         return x+" $";
     }
@@ -47,7 +54,7 @@ const Post = ()=> {
                 
                 <div className='detail-movie-left-first'>
                     <div className='detail-movie-img'>
-                        <img src ={movieData.google_url} style={{width:'100%',height:'100%'}}/>
+                        <img src ={movieData.google_url} style={{width:'100%',height:'100%',borderRadius: '2px 0 0 2px'}}/>
                     </div>
                     <div className='detail-movie-details'>
 
@@ -68,11 +75,24 @@ const Post = ()=> {
                                 {getRevenue(movieData.revenue)}
                             </div>
                         </div>
+                        <div className='detail-movie-details-genres'>{
+                            genres.map((genre) => (
+                                <div>{genre.genre_name}</div>
+                            ))
+                            }
+                        </div>
 
 
                     </div>
+ 
                 </div>
-
+                <div className='detail-movie-left-second'>
+                    {posts.map((post)=>(<>                        
+                        <PostCard post={post}/>
+                    </>))
+                    }
+                </div>
+                
 
             </div>
            <div className='detail-movie-right'>
