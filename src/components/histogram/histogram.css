@@ -1,0 +1,33 @@
+.histogram-item{
+    display: flex;
+    gap:6px;
+    align-items: center;
+    font-size: 20px;
+}
+.item-title{
+    font-size: 10px;
+    font-weight: 600;
+    transform: rotateZ(-60deg);
+}
+.histogram-item-bar{
+    width:20px;
+    background-color:rgba(0, 0, 0, 0.916);
+    border-radius:2px 2px 0 0;
+    animation-name: fill-bar;
+    animation-duration: 1s;
+}
+
+
+table tr {
+	display: table-cell;
+}
+table tr td {
+	display: block;
+}
+
+@keyframes fill-bar {
+    0%   {background-color:rgba(0, 0, 0, 0.053);}
+    50%  {background-color: rgba(0, 0, 0, 0.392);}
+    100% {background-color: rgb(0, 0, 0);}
+  }
+

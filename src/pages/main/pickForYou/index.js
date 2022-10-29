@@ -9,16 +9,15 @@ import { useEffect, useState } from 'react';
 // const urlToFetch ="http://localhost:4000/movie/list/8243"
 
 
-const Componenet = ({title,tpfyType})=> {
+const Componenet = ({title,tpfyType,language,tpfyRef})=> {
 
     var [movieList,setMovieList] = useState();
-    var [movieListForLoader,setMovieListForLoader] = useState([0,0,0,0,0,0,0]);
+    var [movieListForLoader,setMovieListForLoader] = useState([0,0,0,0,0,0,0,0]);
 
     var urlToFetch=""
 
 
     useEffect(()=>{
-
         if(tpfyType==1)
         urlToFetch = `${BackendUrl}/movie/list/0`
 
@@ -28,6 +27,9 @@ const Componenet = ({title,tpfyType})=> {
         if(tpfyType==3)
         urlToFetch = `${BackendUrl}/movie/list/released/today`
         
+        if(tpfyType==4)
+        urlToFetch = `${BackendUrl}/movie/list/lang/`+ language
+
         fetch(urlToFetch,{
             method : "GET",
             mode: 'cors',
@@ -38,11 +40,14 @@ const Componenet = ({title,tpfyType})=> {
             // console.log(json)
             setMovieList(json);
         }); 
-    },[])
+    },[language])
 
     return (
-            <div className='top-pick'>
+            <div className='top-pick' ref={tpfyRef}>
                 <div className='top-pick-title'> {title} </div>
+                <div className="top-pick-hr">
+
+                </div>
                 <div className='top-pick-list'>
                     {
                         movieList?

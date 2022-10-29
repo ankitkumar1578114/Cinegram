@@ -8,7 +8,7 @@ const Componenet = ({casts})=> {
     },[])
     return casts.map((cast)=>(
         <>
-            <Link to={"/artist?id="+cast.id}  style={{textDecoration:'none'}}>
+            <Link to={"/artist/"+cast.id}  style={{textDecoration:'none'}}>
                 <div className="movie-cast-card">
                     <div className="movie-cast-card-img-box">
                         <img className="movie-cast-card-img" src={cast.google_url}></img>                    
@@ -17,8 +17,8 @@ const Componenet = ({casts})=> {
                         <div className="movie-cast-card-title">
                         {cast.name} 
                         </div>
-                        <div className="movie-cast-card-title" style={{color:'gray',fontWeigh:'600'}}>
-                            ({cast.character_name})
+                        <div className="movie-cast-card-charecter" style={{color:'gray',fontWeigh:'600'}}>
+                            {cast.character_name}
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,10 @@
+
 .tpfy-card-loader{
-    width:200px;
-    height:300px;
-    background-color:blanchedalmond;    
-    border-radius: 6px;
+    width:180px;
+    height:270px;
+    border-radius: 4px;
     color:black;
+    margin:4px 0;
     animation-name: animate-img;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -11,7 +12,7 @@
 }
 
 @keyframes animate-img {
-    0%   {background-color:rgb(251, 212, 165);}
-    50% {background-color: rgb(249, 191, 120);}
-    0%   {background-color:rgb(251, 212, 165);}  
+    0%   {background-color:rgba(246, 244, 242, 0.666);}
+    50% {background-color: rgba(183, 183, 183, 0.538);}
+    100%   {background-color:rgba(246, 244, 242, 0.666);}
 }

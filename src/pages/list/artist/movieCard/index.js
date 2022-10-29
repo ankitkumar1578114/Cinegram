@@ -9,7 +9,7 @@ const Componenet = ({movies})=> {
 
     return movies?.map((movie)=>(
         <>
-          <Link to={"/movie?id="+movie.id} style={{textDecoration:'none',color:'red'}}>
+          <Link to={"/movie/"+movie.id} style={{textDecoration:'none',color:'red'}}>
             <div className="artist-movie-card">
                 <div className="artist-movie-card-img-box">
                     <img className="artist-movie-card-img" src={movie.google_url}></img>
@@ -17,7 +17,7 @@ const Componenet = ({movies})=> {
                 <div className="artist-movie-card-title">
                     {movie.title}
                 </div>
-                <div className="artist-movie-card-title">
+                <div className="artist-movie-card-year">
                     {movie.release_year}
                 </div>
             </div>

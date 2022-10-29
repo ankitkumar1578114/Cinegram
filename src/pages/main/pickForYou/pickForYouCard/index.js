@@ -10,13 +10,19 @@ const Componenet = ({movie})=> {
     },[])
 
     return (
-            <Link to = {"/movie?id="+movie.id} style={{textDecoration:'none'}}>
+            <Link to ={"/movie/"+movie.id} style={{textDecoration:'none'}}  >
                 <div className='tpfy-card'>
-                    <div className='tpfy-card-img'>
-                        <img src = {movie.google_url} style={{width:'100%',height:'100%', borderRadius: '6px 6px 0 0'}}/>
+                    <div className='tpfy-card-details'>
+                        <div className='tpfy-card-title'>
+                            {movie.title}
+                        </div>
+                        <div className='tpfy-card-release-year'>
+                            {movie.release_year}
+                        </div>
                     </div>
-                    <div className='tpfy-card-title'>
-                        {movie.title}
+
+                    <div className='tpfy-card-img'>
+                        <img src = {movie.google_url} style={{width:'100%',height:'100%', borderRadius: '4px'}}/>
                     </div>
                 </div>
             </Link>

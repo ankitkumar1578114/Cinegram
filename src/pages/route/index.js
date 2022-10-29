@@ -15,8 +15,8 @@ const Componenet = () => {
             <Routes>
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/post" element={<PostPage/>} />
-                <Route path="/movie" element={<MoviePage/>} />                
-                <Route path="/artist" element={<ArtistPage/>} />                
+                <Route path="/movie/:id" element={<MoviePage/>} />                
+                <Route path="/artist/:id" element={<ArtistPage/>} />                
             </Routes>
         </>
     );

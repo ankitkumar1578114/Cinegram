@@ -1,6 +1,6 @@
 .post{
-    width:300px;
-    height:400px;
+    width:280px;
+    height:360px;
     background-color:bisque;
     border-radius: 4px;
     overflow: hidden;
@@ -16,13 +16,21 @@
 .post-title{
     padding:10px;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     text-decoration-line: underline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .post-body{
     font-size: 16px;
-    height:120px;
-    overflow:hidden;
-    padding:10px;
-    text-align: justify;
+    /* height:120px; */
+    margin:0 10px;
+    /* text-align: justify; */
+    display: -webkit-box;
+    max-height: 120px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
 }

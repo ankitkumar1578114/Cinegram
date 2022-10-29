@@ -1,18 +1,24 @@
 .top-pick{
-    padding:20px 40px;
+    margin:8px 0;
+    padding:24px 40px;
     display:flex;
     flex-direction: column;
     gap:10px ;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px 0px rgba(156, 154, 154, 0.46);
 }
 .top-pick-title{
-    width:100%;
     font-size:24px;
     font-weight: 500;
+    color:rgba(0, 0, 0, 0.87);
+    font-family:sans-serif;
+}
+.top-pick-hr{
+    border-top:0.5px solid rgba(0, 0, 0, 0.214);
 }
 .top-pick-list{
-    width:100%;
     display: flex;
-    gap:10px;
+    gap:12px;
     overflow: scroll;
 }
 .top-pick-list::-webkit-scrollbar {

@@ -6,7 +6,7 @@ import './index.css';
 
 const urlToFetch = `${BackendUrl}/movie/search/`
 
-const Componenet = () => {
+const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
 
     var itemToSearch = ""
 
@@ -18,8 +18,6 @@ const Componenet = () => {
     const searchFunc = (e) => {
         // e.preventDefault();
         itemToSearch = e.target.value;
-
-        // console.log(itemToSearch)
 
         if (itemToSearch == "") {
             setSearchList([])
@@ -38,18 +36,54 @@ const Componenet = () => {
             });
     }
 
+    const scrollToTpfyRef = () =>{
+        tpfyRef.current.scrollIntoView({behavior:'smooth'})
+    }
+    const scrollToThmRef = () =>{
+        thmRef.current.scrollIntoView({behavior:'smooth'})
+    }
+    const scrollToPtrRef = () =>{
+        ptrRef.current.scrollIntoView({behavior:'smooth'})    
+    }
+
     return (
         <>
             <form onSubmit={searchFunc}>
                 <div className='search-box-div'>
-                <input className="search-box" placeholder="Search for movie here..." onChange={(e) => { searchFunc(e) }} type="text" /> 
+                <div className="nav-logo">
+                    <Link to={"/"} style={{textDecoration:'none',color:'white'}}>
+                        Cinegram
+                    </Link>
                 </div>
+                    <div>                    
+                        <input className="search-box" placeholder="Search" style={{minWidth:(isMainPage?'800px':'400px')}} onChange={(e) => { searchFunc(e) }} type="text" /> 
+                    </div>
+    
+                    {
+                        isMainPage?(
+                            <>
+                                <div className='nav-menu'>
+                                    <div onClick={scrollToTpfyRef}>
+                                        Top 15
+                                    </div>
+                                    <div onClick={scrollToThmRef}>
+                                        Top Hindi
+                                    </div>
+                                    <div onClick={scrollToPtrRef}>
+                                        Previous Today's Release
+                                    </div>
+                               </div>
+                            </>                        
+                        ):(<></>)
+                    }
+    
+                    </div>
             </form>
 
             <div className="search-list" >
                 {
                     searchList.map((movie) => (
-                        <Link to={"/movie?id="+movie.id} style={{textDecoration:'none',color:'black'}}>                 
+                        <Link to={"/movie/"+movie.id} style={{textDecoration:'none',color:'black'}}>                 
                         <div class='search-list-item'>
                             {movie.title}
                         </div>

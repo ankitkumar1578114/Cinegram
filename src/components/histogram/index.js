@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import {Link} from 'react-router-dom'
-import './index.css';
+import './histogram.css';
 
 
 const Componenet = ({genresPercentage}) => {
@@ -14,12 +14,13 @@ const Componenet = ({genresPercentage}) => {
        
     return (
         <>
-            <table>
+            <table style={{display:'flex',alignItems:'flex-end'}}>
             {
                 genresPercentage.map((genre)=>(
                         <tr>
-                            <td><div className="item-title">{genre.genre_name}</div></td>
-                            <td style={{display:'flex',alignItems:'center',gap:'10px'}}><div className='histogram-item-bar' style={{width:20*genre.count_movie+'px'}}></div> {genre.count_movie}</td>
+                            <td>  {genre.count_movie}<div className='histogram-item-bar' style={{height:200*(genre.count_movie/genresPercentage[0].count_movie)+'px'}}></div></td>
+                            <td style={{maxWidth:'30px'}}><div className="item-title" >{genre.genre_name}</div></td>
+
                         </tr>
                     ))
             }
