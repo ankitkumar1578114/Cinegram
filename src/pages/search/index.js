@@ -8,23 +8,19 @@ const urlToFetch = `${BackendUrl}/movie/search/`
 
 const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
 
-    var itemToSearch = ""
 
-    const [selectedSearchItem,setSelectedSearchItem] = useState(-1);
-
+    const [itemToSearch,setItemToSearch] = useState("");
 
     const [searchList, setSearchList] = useState([]);
 
-    const searchFunc = (e) => {
-        // e.preventDefault();
-        itemToSearch = e.target.value;
-
-        if (itemToSearch == "") {
+    const searchFunc = (e) => {     
+        // console.log(e.target.value)   
+        if(e.target.value.length==0)
+        {
             setSearchList([])
-            return;
+            return ;
         }
-
-        fetch(urlToFetch + itemToSearch, {
+        fetch(urlToFetch + e.target.value, {
             method: "GET",
             mode: 'cors',
             headers: {}
@@ -34,6 +30,7 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
                 // console.log(json)
                 setSearchList(json);
             });
+       
     }
 
     const scrollToTpfyRef = () =>{
@@ -48,15 +45,29 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
 
     return (
         <>
-            <form onSubmit={searchFunc}>
+            <form>
                 <div className='search-box-div'>
                 <div className="nav-logo">
                     <Link to={"/"} style={{textDecoration:'none',color:'white'}}>
                         Cinegram
                     </Link>
                 </div>
-                    <div>                    
-                        <input className="search-box" placeholder="Search" style={{minWidth:(isMainPage?'800px':'400px')}} onChange={(e) => { searchFunc(e) }} type="text" /> 
+                    <div>              
+                    <input className="search-box" placeholder="Search" style={{minWidth:(isMainPage?'800px':'540px')}} onChange={(e) => { searchFunc(e) }} type="text" />                         
+                        <div className="search-list" style={{minWidth:(isMainPage?'800px':'540px')}} >
+                            {
+                                searchList.map((movie) => (
+                                    <Link to={"/movie/"+movie.id} style={{textDecoration:'none',color:'black'}}>                 
+                                    <div class='search-list-item'>
+                                        {movie.title}
+                                    </div>
+                                    </Link>
+                                )
+                                )
+                            }
+                            
+                        </div>
+        
                     </div>
     
                     {
@@ -76,23 +87,11 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
                             </>                        
                         ):(<></>)
                     }
-    
+
+
                     </div>
             </form>
 
-            <div className="search-list" >
-                {
-                    searchList.map((movie) => (
-                        <Link to={"/movie/"+movie.id} style={{textDecoration:'none',color:'black'}}>                 
-                        <div class='search-list-item'>
-                            {movie.title}
-                        </div>
-                        </Link>
-                    )
-                    )
-                }
-                
-            </div>
         </>
     );
 
