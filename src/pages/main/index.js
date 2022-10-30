@@ -1,17 +1,19 @@
 import './index.css';
 import BackendUrl from '../../urls';
 import SearchPage from '../search'
-import PostList from '../list/post' 
 import PickForYou from './pickForYou'
 import { useEffect, useState,useRef } from 'react';
 import NewMovies from './newMovies'
-// const urlToFetch =process.env.backendURL+"/language/"
-const urlToFetchNews = "https://api.themoviedb.org/3/movie/upcoming?api_key=74ac704fd074ad2bbe8a579ac983f615&language=en-US&page=1"
-// const urlToFetch ="http://localhost:4000/movie/list/8243"
 
 
-const 
-Componenet = ()=> {
+//for fetching upcoming movie data from tmdb
+// const urlToFetchNews = "https://api.themoviedb.org/3/movie/upcoming?api_key=74ac704fd074ad2bbe8a579ac983f615&language=en-US&page=1"
+
+//for fetching upcojming movie data form my database
+const urlToFetchUpcomingMovies =`${BackendUrl}/movie/list/upcoming/0`
+
+
+const Componenet = ()=> {
 
     var [articles,setArticles] = useState([]);
 
@@ -20,17 +22,18 @@ Componenet = ()=> {
     const ptrRef = useRef(null)
 
     useEffect(()=>{
-        // console.log("Hi")
-        fetch(urlToFetchNews,{
+
+        fetch(urlToFetchUpcomingMovies,{
             method : "GET",
             mode: 'cors',
             headers:{} 
         })
         .then(res=>res.json())
         .then(json=>{
-            console.log(json.results)
-            setArticles(json.results);
+            // console.log(json)
+            setArticles(json);
         }); 
+
     },[])
 
 

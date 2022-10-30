@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
-import BackendUrl from '../../urls';
 import {Link} from 'react-router-dom'
+
+import BackendUrl from '../../urls';
 import './index.css';
 
 
@@ -9,27 +10,25 @@ const urlToFetch = `${BackendUrl}/movie/search/`
 const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
 
 
-    const [itemToSearch,setItemToSearch] = useState("");
-
     const [searchList, setSearchList] = useState([]);
 
     const searchFunc = (e) => {     
-        // console.log(e.target.value)   
+       
         if(e.target.value.length==0)
         {
             setSearchList([])
             return ;
-        }
+        }        
         fetch(urlToFetch + e.target.value, {
             method: "GET",
             mode: 'cors',
             headers: {}
         })
-            .then(res => res.json())
-            .then(json => {
+        .then(res => res.json())
+        .then(json => {
                 // console.log(json)
                 setSearchList(json);
-            });
+        });
        
     }
 
@@ -69,7 +68,7 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
                         </div>
         
                     </div>
-    
+
                     {
                         isMainPage?(
                             <>
@@ -87,7 +86,6 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
                             </>                        
                         ):(<></>)
                     }
-
 
                     </div>
             </form>

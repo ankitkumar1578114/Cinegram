@@ -1,10 +1,10 @@
+import {Routes ,Route} from 'react-router-dom'
 import BackendUrl from '../../urls';
 import './index.css';
 import MainPage from '../main'
 import PostPage from '../detail/post'
 import MoviePage from '../detail/movie'
 import ArtistPage from '../detail/artist'
-import {Routes ,Route} from 'react-router-dom'
 
 const urlToFetch = `${BackendUrl}/movie/search/`
 
