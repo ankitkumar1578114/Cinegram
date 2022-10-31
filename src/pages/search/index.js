@@ -5,9 +5,48 @@ import BackendUrl from '../../urls';
 import './index.css';
 
 
-const urlToFetch = `${BackendUrl}/movie/search/`
+const SearchListComponent = ({searchList,setSearchList}) =>{
+   
+
+    return (
+        searchList.map((item) => (
+            <Link
+            onClick={()=>setSearchList([])}
+            to={
+                item.entity_type=='Movie'?
+                "/movie/"+item.id:
+                "/artist/"+item.id
+                } style={{textDecoration:'none',color:'black'}}>                 
+            <div class='search-list-item'>
+                {item.entity_type=='Movie'?item.title:item.name}
+                <div>{item.entity_type}</div>
+            </div>
+
+            </Link>
+        )
+        )
+    )
+}
+
+const urlToFetch = `${BackendUrl}/search/`
 
 const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
+
+
+    const useOutsideAlerter = (ref)=> {
+        useEffect(() => {
+
+            function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+               setSearchList([]) //change if click is outside of searchList
+            }
+          }
+          document.addEventListener("mousedown", handleClickOutside);
+          return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+          };
+        }, [ref]);
+      }
 
 
     const [searchList, setSearchList] = useState([]);
@@ -26,8 +65,9 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
         })
         .then(res => res.json())
         .then(json => {
-                // console.log(json)
+                console.log(json)
                 setSearchList(json);
+
         });
        
     }
@@ -42,6 +82,9 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
         ptrRef.current.scrollIntoView({behavior:'smooth'})    
     }
 
+    const wrapperRef = useRef(null);
+    useOutsideAlerter(wrapperRef);    
+
     return (
         <>
             <form>
@@ -53,20 +96,9 @@ const Componenet = ({tpfyRef,ptrRef,thmRef,isMainPage}) => {
                 </div>
                     <div>              
                     <input className="search-box" placeholder="Search" style={{minWidth:(isMainPage?'800px':'540px')}} onChange={(e) => { searchFunc(e) }} type="text" />                         
-                        <div className="search-list" style={{minWidth:(isMainPage?'800px':'540px')}} >
-                            {
-                                searchList.map((movie) => (
-                                    <Link to={"/movie/"+movie.id} style={{textDecoration:'none',color:'black'}}>                 
-                                    <div class='search-list-item'>
-                                        {movie.title}
-                                    </div>
-                                    </Link>
-                                )
-                                )
-                            }
-                            
-                        </div>
-        
+                        <div ref={wrapperRef}  className="search-list" style={{minWidth:(isMainPage?'800px':'540px')}} >
+                            <SearchListComponent searchList={searchList} setSearchList={setSearchList}/>
+                        </div>        
                     </div>
 
                     {

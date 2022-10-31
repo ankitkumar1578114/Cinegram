@@ -18,14 +18,16 @@
     flex-direction: column;
     cursor:pointer;
     border-radius:4px;
-    transition: transform 0.2s;
+    transition: transform 0.3s;
 }
 
 
 .main-container-new-movie:hover{
-    transform: translateY(-10px);
+    transform: translateY(-10px); 
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.525);
 }
+
+
 .main-container-new-movie-img{
     width:300px;
     height:440px;
